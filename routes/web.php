@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompletedTaskController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('todo.store');
 
         Route::put('/complete', 'complete')->name('todo.complete');
+    });
+
+     Route::controller(CompletedTaskController::class)->group(function () {
+        Route::get('complete', 'index')->name('complete.index');
+        Route::put('uncomplete', 'unComplete')->name('uncomplete.index');
     });
 });
 
