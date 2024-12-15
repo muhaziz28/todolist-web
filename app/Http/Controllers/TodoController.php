@@ -67,6 +67,6 @@ class TodoController extends Controller
         $data->task = $request->task;
         $data->save();
 
-        return redirect()->route('todo.index');
+        return redirect()->route('dashboard');
     }
 }
