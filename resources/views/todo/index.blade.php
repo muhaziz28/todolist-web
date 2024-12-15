@@ -18,6 +18,7 @@
                         </div>
 
                         <div class="flex flex-row space-x-3">
+                            <a href="{{ route('todo.edit', $item->id) }}" class="text-white bg-yellow-600 px-4 py-2 rounded hover:bg-yellow-900 ">Update</a>
                             <form action="{{ route('todo.complete', $item->id) }}" method="post">
                                 @csrf
                                 @method('put')

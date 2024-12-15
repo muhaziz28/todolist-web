@@ -17,13 +17,14 @@
                         </div>
 
                         <div class="flex flex-row space-x-3">
+                            <a href="" class="text-white bg-yellow-600 px-4 py-2 rounded hover:bg-yellow-900 ">Update</a>
                             <form action="{{ route('uncomplete.index') }}" method="post">
                                 @csrf
                                 @method('put')
                                 <input type="hidden" value="{{ $item->id }}" name="id">
                                 <button type="submit" class="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-900 ">Mark as uncomplete</button>
                             </form>
-                            <form action="{{ route('todo.destroy', $item->id) }}" method="post">
+                            <form action="{{ route('todo.destroy') }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" value="{{ $item->id }}" name="id">

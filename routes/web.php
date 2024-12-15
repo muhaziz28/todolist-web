@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
 
         Route::put('/complete', 'complete')->name('todo.complete');
         Route::delete('/destroy', 'destroy')->name('todo.destroy');
+
+        Route::get('/edit/{id}', 'edit')->name('todo.edit');
+        Route::put('/update', 'update')->name('todo.update');
     });
 
     Route::controller(CompletedTaskController::class)->group(function () {
