@@ -36,11 +36,20 @@ class TodoController extends Controller
         }
     }
 
-    public function complete(Request $request) {
+    public function complete(Request $request)
+    {
         $query = Todo::find($request->id);
 
         $query->is_completed = true;
         $query->save();
+
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request)
+    {
+        $query = Todo::find($request->id);
+        $query->delete();
 
         return redirect()->back();
     }

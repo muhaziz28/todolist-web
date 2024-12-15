@@ -25,9 +25,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('todo.store');
 
         Route::put('/complete', 'complete')->name('todo.complete');
+        Route::delete('/destroy', 'destroy')->name('todo.destroy');
     });
 
-     Route::controller(CompletedTaskController::class)->group(function () {
+    Route::controller(CompletedTaskController::class)->group(function () {
         Route::get('complete', 'index')->name('complete.index');
         Route::put('uncomplete', 'unComplete')->name('uncomplete.index');
     });

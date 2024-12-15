@@ -17,12 +17,20 @@
                             {{$item->task}}
                         </div>
 
-                        <form action="{{ route('todo.complete', $item->id) }}" method="post">
-                        @csrf
-                        @method('put')
-                            <input type="hidden" value="{{ $item->id }}" name="id">
-                            <button type="submit" class="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-900 ">Mark as complete</button>
-                        </form>
+                        <div class="flex flex-row space-x-3">
+                            <form action="{{ route('todo.complete', $item->id) }}" method="post">
+                                @csrf
+                                @method('put')
+                                <input type="hidden" value="{{ $item->id }}" name="id">
+                                <button type="submit" class="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-900 ">Mark as complete</button>
+                            </form>
+                            <form action="{{ route('todo.destroy', $item->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="hidden" value="{{ $item->id }}" name="id">
+                                <button type="submit" class="text-white bg-red-600 px-4 py-2 rounded hover:bg-red-900 ">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 @endforeach
